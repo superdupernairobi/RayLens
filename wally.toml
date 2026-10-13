@@ -4,6 +4,6 @@ version = "0.1.0"
 registry = "https://github.com/Upliftgames/wally-index"
 realm = "shared"
 license = "MIT"
-description = "Raycast and shapecast debuggging for Roblox, client sided handle adornments, Studio only"
+description = "Raycast and shapecast debugging for Roblox, client sided handle adornments, Studio only"
 authors = ["superdupernairobi"]
 exclude = ["build", "build/**", "docs", "docs/**", "assets", "assets/**", "dev", "dev/**", "moonwave.toml", "rokit.toml", "place.project.json"]
