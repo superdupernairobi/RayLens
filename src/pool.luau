@@ -40,6 +40,8 @@ const function acquire(className: string): HandleAdornment
 	end
 
 	const instance = Instance.new(className) :: HandleAdornment
+	instance.Adornee = Workspace.Terrain
+	instance.Visible = true
 	instance.Parent = getFolder()
 
 	return instance
