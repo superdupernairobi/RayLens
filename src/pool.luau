@@ -1,6 +1,9 @@
 --!strict
 
-local FOLDER_NAME = game:GetService("HttpService"):GenerateGUID(false)
+local HttpService = game:GetService("HttpService")
+local Workspace = game:GetService("Workspace")
+
+local FOLDER_NAME = HttpService:GenerateGUID(false)
 local MAX_IDLE_PER_CLASS = 256
 
 local idle: { [string]: { HandleAdornment } } = {}
@@ -14,7 +17,7 @@ local function getFolder(): Folder
 
 	const created = Instance.new("Folder")
 	created.Name = FOLDER_NAME
-	created.Parent = workspace
+	created.Parent = Workspace.Terrain
 
 	folder = created
 
