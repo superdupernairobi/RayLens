@@ -35,12 +35,10 @@ export type ResolvedOptions = {
 export type ShapeKind = "line" | "sphere" | "box" | "cone" | "cylinder" | "pyramid"
 
 --[=[
-    One live adornment tracked by the renderer, expiresAt is an os.clock()
-    deadline, so nil means cleared at the end of this frame
+    One live adornment tracked by the renderer, expiresAt is an os.clock() deadline
 ]=]
 export type Entry = {
 	adornment: HandleAdornment,
-	kind: ShapeKind,
 	expiresAt: number?,
 }
 

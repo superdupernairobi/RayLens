@@ -1,6 +1,6 @@
 --!strict
 
-local FOLDER_NAME = game:GetService("HttpService"):GenerateGUID()
+local FOLDER_NAME = game:GetService("HttpService"):GenerateGUID(false)
 local MAX_IDLE_PER_CLASS = 256
 
 local idle: { [string]: { HandleAdornment } } = {}
