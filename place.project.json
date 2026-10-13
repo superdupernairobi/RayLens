@@ -1,0 +1,14 @@
+{
+    "name": "RayLensDev",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "raylens": { "$path": "src" }
+        },
+        "StarterPlayer": {
+            "StarterPlayerScripts": {
+                "RayLensDev": { "$path": "dev" }
+            }
+        }
+    }
+}

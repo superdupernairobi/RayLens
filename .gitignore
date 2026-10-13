@@ -1,0 +1,9 @@
+/RayLensDev.rbxlx
+/*.rbxlx.lock
+/*.rbxl.lock
+sourcemap.json
+Packages/
+DevPackages/
+ServerPackages/
+build/
+*.rbxm
