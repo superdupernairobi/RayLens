@@ -2,8 +2,8 @@
 
 local RunService = game:GetService("RunService")
 
-local pool = require(script.Parent.pool)
-local types = require(script.Parent.types)
+local pool = require("./pool")
+local types = require("./types")
 
 local entries: { types.Entry } = {}
 local connection: RBXScriptConnection? = nil

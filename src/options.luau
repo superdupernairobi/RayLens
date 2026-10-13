@@ -1,6 +1,6 @@
 --!strict
 
-local types = require(script.Parent.types)
+local types = require("./types")
 
 --[=[
     The values every draw falls back to, frozen because resolve() hands this exact table
