@@ -60,7 +60,7 @@ end
 
 --[=[
     Registers an adornment for drawing, with a lifetime in seconds, starts the loop on
-    the first call, so nothing runs until somethingg is drawn
+    the first call, so nothing runs until something is drawn
 ]=]
 const function add(adornment: HandleAdornment, lifetime: number)
 	entries[#entries + 1] = {

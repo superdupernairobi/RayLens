@@ -52,7 +52,7 @@ end
     @function box
     @within RayLens
     @param cframe CFrame -- The cast cframe
-    @param size Vector3 -- The cast size 
+    @param size Vector3 -- The cast size
     @param options Options? -- Styling, blank fields just go to the defaults
 ]=]
 const function box(cframe: CFrame, size: Vector3, options: types.Options?)

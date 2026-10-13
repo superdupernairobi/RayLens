@@ -9,7 +9,7 @@ const MARKER_HEIGHT_RATIO = 3
 
 --[=[
     Draws the marker at a hit, a cast that starts in contact reports distance 0 and a zero
-    normal, so a zero direction into CFrame.lookAt gives a NaN look Vect without raising,
+    normal, so a zero direction into CFrame.lookAt gives a NaN look vector without raising,
     so the orientation is only applied when the normal actually has length
 ]=]
 const function marker(position: Vector3, normal: Vector3, options: typees.ResolvedOptions): HandleAdornment
