@@ -8,5 +8,5 @@ EADASDAS
 
 ```toml
 [dependencies]
-RayLens = "superdupernairobi/raylens@0.1.0"
+raylens = "superdupernairobi/raylens@0.1.0"
 ```
