@@ -1,0 +1,13 @@
+gitSourceBranch = "main"
+gitRepoUrl = "https://github.com/superdupernairobi/RayLens"
+
+[docusaurus]
+organizationName = "superdupernairobi"
+projectName = "RayLens"
+url = "https://superdupernairobi.github.io"
+baseUrl = "/RayLens/"
+favicon = "/favicon.png"
+
+[navbar.logo]
+src = "/logo.png"
+alt = "RayLens logo"
