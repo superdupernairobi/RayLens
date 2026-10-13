@@ -39,7 +39,7 @@ export type ShapeKind = "line" | "sphere" | "box" | "cone" | "cylinder" | "pyram
 ]=]
 export type Entry = {
 	adornment: HandleAdornment,
-	expiresAt: number?,
+	expiresAt: number,
 }
 
 export type DrawCallback = (dt: number) -> ()
