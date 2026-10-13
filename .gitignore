@@ -7,3 +7,5 @@ DevPackages/
 ServerPackages/
 build/
 *.rbxm
+*.rbxl
+*.rbxlx

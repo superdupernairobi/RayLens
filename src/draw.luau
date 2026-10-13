@@ -13,14 +13,14 @@ local MARKER_HEIGHT_RATIO = 3
     so the orientation is only applied when the normal actually has length
 ]=]
 local function marker(position: Vector3, normal: Vector3, options: typees.ResolvedOptions): HandleAdornment
-    const size = options.radius
-    const height = size * MARKER_HEIGHT_RATIO
+	const size = options.radius
+	const height = size * MARKER_HEIGHT_RATIO
 
-    if normal.Magnitude > 0 then
-        return shapes.pyramid(CFrame.lookAt(position, position + normal), size, height, options)
-    end
+	if normal.Magnitude > 0 then
+		return shapes.pyramid(CFrame.lookAt(position, position + normal), size, height, options)
+	end
 
-    return shapes.pyramid(CFrame.new(position), size, height, options)
+	return shapes.pyramid(CFrame.new(position), size, height, options)
 end
 
 --[=[
@@ -29,15 +29,15 @@ end
     a marker on the surface normal
 ]=]
 local function draw(origin: Vector3, direction: Vector3, result: RaycastResult?, options: typees.Options?)
-    const resolved = optionsModule.resolve(options)
+	const resolved = optionsModule.resolve(options)
 
-    if result == nil then
-        render.add(shapes.line(origin, origin + direction, resolved), resolved.lifetime)
-        return
-    end
+	if result == nil then
+		render.add(shapes.line(origin, origin + direction, resolved), resolved.lifetime)
+		return
+	end
 
-    render.add(shapes.line(origin, result.Position, resolved), resolved.lifetime)
-    render.add(marker(result.Position, result.Normal, resolved), resolved.lifetime)
+	render.add(shapes.line(origin, result.Position, resolved), resolved.lifetime)
+	render.add(marker(result.Position, result.Normal, resolved), resolved.lifetime)
 end
 
 --[=[
@@ -45,61 +45,61 @@ end
     worldRoot:raycast(origin, direction), so the same vector can be passed through both
 ]=]
 local function ray(origin: Vector3, direction: Vector3, options: typees.Options?)
-    const resolved = optionsModule.resolve(options)
+	const resolved = optionsModule.resolve(options)
 
-    render.add(shapes.line(origin, origin + direction, resolved), resolved.lifetime)
+	render.add(shapes.line(origin, origin + direction, resolved), resolved.lifetime)
 end
 
 --[=[
     Draws a line between two points
 ]=]
 local function line(from: Vector3, to: Vector3, options: typees.Options?)
-    const resolved = optionsModule.resolve(options)
+	const resolved = optionsModule.resolve(options)
 
-    render.add(shapes.line(from, to, resolved), resolved.lifetime)
+	render.add(shapes.line(from, to, resolved), resolved.lifetime)
 end
 
 --[=[
     Draws a box, for visualising a blockcast, make sure to pass the cf and size you gave the cast
 ]=]
 local function box(cframe: CFrame, size: Vector3, options: typees.Options?)
-    const resolved = optionsModule.resolve(options)
+	const resolved = optionsModule.resolve(options)
 
-    render.add(shapes.box(cframe, size, resolved), resolved.lifetime)
+	render.add(shapes.box(cframe, size, resolved), resolved.lifetime)
 end
 
 --[=[
     Draws a spheree, for visualising aa spherecast
 ]=]
 local function sphere(center: Vector3, radius: number, options: typees.Options?)
-    const resolved = optionsModule.resolve(options)
+	const resolved = optionsModule.resolve(options)
 
-    render.add(shapes.sphere(center, radius, resolved), resolved.lifetime)
+	render.add(shapes.sphere(center, radius, resolved), resolved.lifetime)
 end
 
 --[=[
     Draws a cone
 ]=]
 local function cone(cframe: CFrame, radius: number, height: number, options: typees.Options?)
-    const resolved = optionsModule.resolve(options)
+	const resolved = optionsModule.resolve(options)
 
-    render.add(shapes.cone(cframe, radius, height, resolved), resolved.lifetime)
+	render.add(shapes.cone(cframe, radius, height, resolved), resolved.lifetime)
 end
 
 --[=[
     Draws a cylinder
 ]=]
 local function cylinder(cframe: CFrame, radius: number, height: number, options: typees.Options?)
-    const resolved = optionsModule.resolve(options)
+	const resolved = optionsModule.resolve(options)
 
-    render.add(shapes.cylinder(cframe, radius, height, resolved), resolved.lifetime)
+	render.add(shapes.cylinder(cframe, radius, height, resolved), resolved.lifetime)
 end
 
 --[=[
     Removes every drawn adornment and stops the loop
 ]=]
 local function clear()
-    render.clear()
+	render.clear()
 end
 
 --[=[
@@ -108,17 +108,17 @@ end
     rely on lifetime, pass NIL to stop
 ]=]
 local function onDraw(callback: typees.DrawCallback?)
-    render.setOnDraw(callback)
+	render.setOnDraw(callback)
 end
 
 return {
-    draw = draw,
-    ray = ray,
-    line = line,
-    box = box,
-    sphere = sphere,
-    cone = cone,
-    cylinder = cylinder,
-    clear = clear,
-    onDraw = onDraw,
+	draw = draw,
+	ray = ray,
+	line = line,
+	box = box,
+	sphere = sphere,
+	cone = cone,
+	cylinder = cylinder,
+	clear = clear,
+	onDraw = onDraw,
 }
