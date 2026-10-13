@@ -3,8 +3,8 @@
 local types = require(script.Parent.types)
 
 --[=[
-    The values every drawn falls back to, frozen because resolve() hands this exact tabl
-    back when a caller passees no options at all, so the common per frame case allocates
+    The values every draw falls back to, frozen because resolve() hands this exact table
+    back when a caller passes no options at all, so the common per frame case allocates
     nothing
 
     zIndex 1 is the floor, 0 does not draw above parts. AdornCullingMode.Never stops long
