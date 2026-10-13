@@ -1,4 +1,5 @@
 --!strict
+-- Shared contraacts, types only, no runtime behaviour so it loads anywhere
 
 --[=[
     Styling accepted by every draw call. Every field is optional, anything
@@ -31,8 +32,6 @@ export type ResolvedOptions = {
 	shading: Enum.AdornShading,
 	adornCullingMode: Enum.AdornCullingMode,
 }
-
-export type ShapeKind = "line" | "sphere" | "box" | "cone" | "cylinder" | "pyramid"
 
 --[=[
     One live adornment tracked by the renderer, expiresAt is an os.clock() deadline

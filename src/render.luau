@@ -1,15 +1,15 @@
 --!strict
 
-local RunService = game:GetService("RunService")
+const RunService = game:GetService("RunService")
 
-local pool = require("./pool")
-local types = require("./types")
+const pool = require("./pool")
+const types = require("./types")
 
 local entries: { types.Entry } = {}
 local connection: RBXScriptConnection? = nil
 local drawCallback: types.DrawCallback? = nil
 
-local function stop()
+const function stop()
 	const current = connection
 	if current ~= nil then
 		current:Disconnect()
@@ -17,7 +17,7 @@ local function stop()
 	end
 end
 
-local function releaseAll()
+const function releaseAll()
 	for i = #entries, 1, -1 do
 		pool.release(entries[i].adornment)
 	end
@@ -25,7 +25,7 @@ local function releaseAll()
 	table.clear(entries)
 end
 
-local function step(dt: number)
+const function step(dt: number)
 	const callback = drawCallback
 
 	if callback ~= nil then
@@ -50,7 +50,7 @@ local function step(dt: number)
 	end
 end
 
-local function start()
+const function start()
 	if connection ~= nil then
 		return
 	end
@@ -62,7 +62,7 @@ end
     Registers an adornment for drawing, with a lifetime in seconds, starts the loop on
     the first call, so nothing runs until somethingg is drawn
 ]=]
-local function add(adornment: HandleAdornment, lifetime: number)
+const function add(adornment: HandleAdornment, lifetime: number)
 	entries[#entries + 1] = {
 		adornment = adornment,
 		expiresAt = os.clock() + lifetime,
@@ -75,7 +75,7 @@ end
     Sets or clears the per frame callback, while one is set the frame set is released before
     each call so a per frame caller never relies on a lifetime
 ]=]
-local function setOnDraw(callback: types.DrawCallback?)
+const function setOnDraw(callback: types.DrawCallback?)
 	if callback == nil then
 		drawCallback = nil
 
@@ -95,7 +95,7 @@ end
     Drops every entry and destroys every adornment, idle and live and also clears the onDraw
     callback so a single call stops the renderer completely
 ]=]
-local function clear()
+const function clear()
 	table.clear(entries)
 	drawCallback = nil
 

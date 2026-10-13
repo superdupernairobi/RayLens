@@ -1,14 +1,14 @@
 --!strict
 
-local pool = require("./pool")
-local types = require("./types")
+const pool = require("./pool")
+const types = require("./types")
 
 --[=[
     Writes the properties every adornment has, so shading is purposefully absent, a
     LineHandleAdornment has no shading and assigning it throws, so the volume shapes write
     it themselves
 ]=]
-local function style(adornment: HandleAdornment, options: types.ResolvedOptions)
+const function style(adornment: HandleAdornment, options: types.ResolvedOptions)
 	adornment.Color3 = options.color
 	adornment.Transparency = options.transparency
 	adornment.AlwaysOnTop = options.alwaysOnTop
@@ -16,7 +16,7 @@ local function style(adornment: HandleAdornment, options: types.ResolvedOptions)
 	adornment.AdornCullingMode = options.adornCullingMode
 end
 
-local function line(from: Vector3, to: Vector3, options: types.ResolvedOptions): HandleAdornment
+const function line(from: Vector3, to: Vector3, options: types.ResolvedOptions): HandleAdornment
 	const adornment = pool.acquire("LineHandleAdornment") :: LineHandleAdornment
 	const delta = to - from
 	const length = delta.Magnitude
@@ -35,7 +35,7 @@ local function line(from: Vector3, to: Vector3, options: types.ResolvedOptions):
 	return adornment
 end
 
-local function sphere(center: Vector3, radius: number, options: types.ResolvedOptions): HandleAdornment
+const function sphere(center: Vector3, radius: number, options: types.ResolvedOptions): HandleAdornment
 	const adornment = pool.acquire("SphereHandleAdornment") :: SphereHandleAdornment
 
 	adornment.CFrame = CFrame.new(center)
@@ -46,7 +46,7 @@ local function sphere(center: Vector3, radius: number, options: types.ResolvedOp
 	return adornment
 end
 
-local function box(cframe: CFrame, size: Vector3, options: types.ResolvedOptions): HandleAdornment
+const function box(cframe: CFrame, size: Vector3, options: types.ResolvedOptions): HandleAdornment
 	const adornment = pool.acquire("BoxHandleAdornment") :: BoxHandleAdornment
 
 	adornment.CFrame = cframe
@@ -57,7 +57,7 @@ local function box(cframe: CFrame, size: Vector3, options: types.ResolvedOptions
 	return adornment
 end
 
-local function cone(cframe: CFrame, radius: number, height: number, options: types.ResolvedOptions): HandleAdornment
+const function cone(cframe: CFrame, radius: number, height: number, options: types.ResolvedOptions): HandleAdornment
 	const adornment = pool.acquire("ConeHandleAdornment") :: ConeHandleAdornment
 
 	adornment.CFrame = cframe
@@ -69,7 +69,7 @@ local function cone(cframe: CFrame, radius: number, height: number, options: typ
 	return adornment
 end
 
-local function cylinder(cframe: CFrame, radius: number, height: number, options: types.ResolvedOptions): HandleAdornment
+const function cylinder(cframe: CFrame, radius: number, height: number, options: types.ResolvedOptions): HandleAdornment
 	const adornment = pool.acquire("CylinderHandleAdornment") :: CylinderHandleAdornment
 
 	adornment.CFrame = cframe
@@ -85,10 +85,10 @@ end
 
 --[=[
     A four sided pyramid, used for the hit marker, sides is written on every draw for the
-    same reasn as the cylinder props above, size is a single number here, unlike
-    BoxHandleAdornment.Size which is a Vect3
+    same reason as the cylinder props above, size is a single number here, unlike
+    BoxHandleAdornment.Size which is a Vector3
 ]=]
-local function pyramid(cframe: CFrame, size: number, height: number, options: types.ResolvedOptions): HandleAdornment
+const function pyramid(cframe: CFrame, size: number, height: number, options: types.ResolvedOptions): HandleAdornment
 	const adornment = pool.acquire("PyramidHandleAdornment") :: PyramidHandleAdornment
 
 	adornment.CFrame = cframe

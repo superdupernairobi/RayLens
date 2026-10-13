@@ -1,6 +1,6 @@
 --!strict
 
-local types = require("./types")
+const types = require("./types")
 
 --[=[
     The values every draw falls back to, frozen because resolve() hands this exact table
@@ -8,10 +8,10 @@ local types = require("./types")
     nothing
 
     zIndex 1 is the floor, 0 does not draw above parts. AdornCullingMode.Never stops long
-    rays disappearing with dist, and Shading.XRay is what lets a cast volume read
+    rays disappearing with distance, and Shading.XRay is what lets a cast volume read
     through geometry
 ]=]
-local DEFAULTS = table.freeze({
+const DEFAULTS = table.freeze({
 	color = Color3.fromRGB(255, 170, 0),
 	transparency = 0.2,
 	thickness = 0.05,
@@ -23,7 +23,7 @@ local DEFAULTS = table.freeze({
 	adornCullingMode = Enum.AdornCullingMode.Never,
 }) :: types.ResolvedOptions
 
-local function pick<T>(value: T?, fallback: T): T
+const function pick<T>(value: T?, fallback: T): T
 	if value ~= nil then
 		return value
 	end
@@ -31,7 +31,7 @@ local function pick<T>(value: T?, fallback: T): T
 	return fallback
 end
 
-local function validate(options: types.ResolvedOptions)
+const function validate(options: types.ResolvedOptions)
 	const transparency = options.transparency
 	if transparency < 0 or transparency > 1 then
 		error(`raylens: transparency must be between 0 and 1, got {transparency}`)
@@ -62,7 +62,7 @@ end
     Applies defaults and validates, returns DEFAULTS itself when nothing was passed, so a
     per frame caller that wants default styling allocates nothing
 ]=]
-local function resolve(options: types.Options?): types.ResolvedOptions
+const function resolve(options: types.Options?): types.ResolvedOptions
 	if options == nil then
 		return DEFAULTS
 	end

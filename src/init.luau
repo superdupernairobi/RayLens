@@ -1,7 +1,7 @@
 --!strict
 
-local drawModule = require("@self/draw")
-local types = require("@self/types")
+const drawModule = require("@self/draw")
+const types = require("@self/types")
 
 --[=[
     Draws an already cast ray, pass the result you got from worldRoot:Raycast, a nil result is
@@ -20,13 +20,13 @@ const function draw(origin: Vector3, direction: Vector3, result: RaycastResult?,
 end
 
 --[=[
-    Draws a ray before or without castingg it, direction carries its own length, matches
+    Draws a ray before or without casting it, direction carries its own length, matches
     worldRoot:Raycast(o, d), so the same vector can be passed to both
 
-    @function line
+    @function ray
     @within RayLens
-    @param from Vector3 -- Start
-    @param to Vector3 -- End
+    @param origin Vector3 -- Where the ray started
+    @param direction Vector3 -- Direction and length
     @param options Options? -- Styling, blank fields just go to the defaults
 ]=]
 const function ray(origin: Vector3, direction: Vector3, options: types.Options?)
@@ -52,7 +52,7 @@ end
     @function box
     @within RayLens
     @param cframe CFrame -- The cast cframe
-    @param size Vector3 -- The cast in size 
+    @param size Vector3 -- The cast size 
     @param options Options? -- Styling, blank fields just go to the defaults
 ]=]
 const function box(cframe: CFrame, size: Vector3, options: types.Options?)
@@ -101,7 +101,7 @@ const function cylinder(cframe: CFrame, radius: number, height: number, options:
 end
 
 --[=[
-    Removes eveery drawn adornmeent and stops the loop
+    Removes every drawn adornment and stops the loop
 
     @function clear
     @within RayLens
@@ -111,7 +111,7 @@ const function clear()
 end
 
 --[=[
-    Registers a per frame callbackk, while eone is set the previous frame is cleared before
+    Registers a per frame callback, while one is set the previous frame is cleared before
     each call, so draws inside the callback produce a fresh picture every frame and never
     rely on a lifetime, pass nil to stop
 
