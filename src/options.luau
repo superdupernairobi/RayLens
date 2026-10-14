@@ -2,15 +2,6 @@
 
 const types = require("./types")
 
---[=[
-    The values every draw falls back to, frozen because resolve() hands this exact table
-    back when a caller passes no options at all, so the common per frame case allocates
-    nothing
-
-    zIndex 1 is the floor, 0 does not draw above parts. AdornCullingMode.Never stops long
-    rays disappearing with distance, and Shading.XRay is what lets a cast volume read
-    through geometry
-]=]
 const DEFAULTS = table.freeze({
 	color = Color3.fromRGB(255, 170, 0),
 	transparency = 0.2,
@@ -58,10 +49,6 @@ const function validate(options: types.ResolvedOptions)
 	end
 end
 
---[=[
-    Applies defaults and validates, returns DEFAULTS itself when nothing was passed, so a
-    per frame caller that wants default styling allocates nothing
-]=]
 const function resolve(options: types.Options?): types.ResolvedOptions
 	if options == nil then
 		return DEFAULTS

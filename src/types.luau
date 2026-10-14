@@ -1,10 +1,5 @@
 --!strict
--- Shared contraacts, types only, no runtime behaviour so it loads anywhere
 
---[=[
-    Styling accepted by every draw call. Every field is optional, anything
-    omitted falls back to the defaults in options.luau
-]=]
 export type Options = {
 	color: Color3?,
 	transparency: number?,
@@ -17,10 +12,6 @@ export type Options = {
 	adornCullingMode: Enum.AdornCullingMode?,
 }
 
---[=[
-    Options after defaults are applied and values are validated. Every field
-    is present, so nothing downstream needs a second round of nil checks
-]=]
 export type ResolvedOptions = {
 	color: Color3,
 	transparency: number,
@@ -33,9 +24,6 @@ export type ResolvedOptions = {
 	adornCullingMode: Enum.AdornCullingMode,
 }
 
---[=[
-    One live adornment tracked by the renderer, expiresAt is an os.clock() deadline
-]=]
 export type Entry = {
 	adornment: HandleAdornment,
 	expiresAt: number,

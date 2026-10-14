@@ -58,10 +58,6 @@ const function start()
 	connection = RunService.Heartbeat:Connect(step)
 end
 
---[=[
-    Registers an adornment for drawing, with a lifetime in seconds, starts the loop on
-    the first call, so nothing runs until something is drawn
-]=]
 const function add(adornment: HandleAdornment, lifetime: number)
 	entries[#entries + 1] = {
 		adornment = adornment,
@@ -71,10 +67,6 @@ const function add(adornment: HandleAdornment, lifetime: number)
 	start()
 end
 
---[=[
-    Sets or clears the per frame callback, while one is set the frame set is released before
-    each call so a per frame caller never relies on a lifetime
-]=]
 const function setOnDraw(callback: types.DrawCallback?)
 	if callback == nil then
 		drawCallback = nil
@@ -91,10 +83,6 @@ const function setOnDraw(callback: types.DrawCallback?)
 	start()
 end
 
---[=[
-    Drops every entry and destroys every adornment, idle and live and also clears the onDraw
-    callback so a single call stops the renderer completely
-]=]
 const function clear()
 	table.clear(entries)
 	drawCallback = nil

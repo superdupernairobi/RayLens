@@ -3,11 +3,6 @@
 const pool = require("./pool")
 const types = require("./types")
 
---[=[
-    Writes the properties every adornment has, so shading is purposefully absent, a
-    LineHandleAdornment has no shading and assigning it throws, so the volume shapes write
-    it themselves
-]=]
 const function style(adornment: HandleAdornment, options: types.ResolvedOptions)
 	adornment.Color3 = options.color
 	adornment.Transparency = options.transparency
@@ -83,11 +78,6 @@ const function cylinder(cframe: CFrame, radius: number, height: number, options:
 	return adornment
 end
 
---[=[
-    A four sided pyramid, used for the hit marker, sides is written on every draw for the
-    same reason as the cylinder props above, size is a single number here, unlike
-    BoxHandleAdornment.Size which is a Vector3
-]=]
 const function pyramid(cframe: CFrame, size: number, height: number, options: types.ResolvedOptions): HandleAdornment
 	const adornment = pool.acquire("PyramidHandleAdornment") :: PyramidHandleAdornment
 
