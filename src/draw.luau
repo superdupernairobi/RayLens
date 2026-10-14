@@ -13,14 +13,11 @@ const MARKER_HEIGHT_RATIO = 3
     so the orientation is only applied when the normal actually has length
 ]=]
 const function marker(position: Vector3, normal: Vector3, options: typees.ResolvedOptions): HandleAdornment
-	const size = options.radius
-	const height = size * MARKER_HEIGHT_RATIO
-
 	if normal.Magnitude > 0 then
-		return shapes.pyramid(CFrame.lookAt(position, position + normal), size, height, options)
+		return shapes.sphere(position, 0.1, options)
 	end
 
-	return shapes.pyramid(CFrame.new(position), size, height, options)
+	return shapes.sphere(position, 0.1, options)
 end
 
 --[=[
