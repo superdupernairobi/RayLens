@@ -4,9 +4,7 @@ const drawModule = require("@self/draw")
 const types = require("@self/types")
 
 --[=[
-    Draws an already cast ray, pass the result you got from worldRoot:Raycast, a nil result is
-    a miss, drawn at full length with no marker, so the absent marker is what tells you it
-    missed, a result is drawn to its hit point with a marker on the surface normal
+    Draws an already casted ray, show the result you got from worldRoot:Raycast, a nil result is nothing, drawn at full length with no marker, so the absent marker is what tells you it missed, a result is drawn to its hit point with a marker on the surface normal
 
     @function draw
     @within RayLens
@@ -20,8 +18,7 @@ const function draw(origin: Vector3, direction: Vector3, result: RaycastResult?,
 end
 
 --[=[
-    Draws a ray before or without casting it, direction carries its own length, matches
-    worldRoot:Raycast(o, d), so the same vector can be passed to both
+    Draws a ray before or without casting it, direction carries its own length, matches worldRoot:Raycast(o, d), so the same vector can be passed to both
 
     @function ray
     @within RayLens
@@ -111,9 +108,7 @@ const function clear()
 end
 
 --[=[
-    Registers a per frame callback, while one is set the previous frame is cleared before
-    each call, so draws inside the callback produce a fresh picture every frame and never
-    rely on a lifetime, pass nil to stop
+    Adds a per frame callback, while the one that's set the previous frame is cleared before each call, so it draws inside the callback to create a new picture every frame and never rely on a lifetime, show nil to stop
 
     @function onDraw
     @within RayLens
@@ -124,8 +119,7 @@ const function onDraw(callback: types.DrawCallback?)
 end
 
 --[=[
-    Raycast and shape cast debugging for Roblox, draws what you already cast, with client
-    side handle adornments that only render inside Studios
+    Raycast and shape cast debugging for Roblox, draws what you already cast, with client side handle adornments that only render inside Studios
 
     @class RayLens
 ]=]
