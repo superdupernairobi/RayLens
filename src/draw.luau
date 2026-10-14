@@ -5,8 +5,6 @@ const render = require("./render")
 const shapes = require("./shapes")
 const typees = require("./types")
 
-const MARKER_HEIGHT_RATIO = 3
-
 --[=[
     Draws the marker at a hit, a cast that starts in contact reports distance 0 and a zero
     normal, so a zero direction into CFrame.lookAt gives a NaN look vector without raising,
