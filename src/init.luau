@@ -4,7 +4,30 @@ const drawModule = require("@self/draw")
 const types = require("@self/types")
 
 --[=[
-    Draws an already casted ray, show the result you got from worldRoot:Raycast, a nil result is nothing, drawn at full length with no marker, so the absent marker is what tells you it missed, a result is drawn to its hit point with a marker on the surface normal
+    Styling for a draw call, if you dont add anything it just uses the defaults
+
+    @interface Options
+    @within RayLens
+    .color Color3? -- Adornment colour, orange by default
+    .transparency number? -- 0 is solid, 1 is invis
+    .thickness number? -- Line thickness (studs)
+    .radius number? -- Marker and sphere radius (studs)
+    .lifetime number? -- Seconds a one call draw stays on screen
+    .alwaysOnTop boolean? -- Draw through geometry
+    .zIndex number? -- 1 or more to draw above parts
+    .shading Enum.AdornShading? -- Volume shapes only, lines ignore it
+    .adornCullingMode Enum.AdornCullingMode? -- Never stops long rays fading with distance
+]=]
+
+--[=[
+    Called once per frame while onDraw is running where `dt` is the time in seconds since the previous frame.
+    
+    @interface DrawCallback 
+    @within RayLens
+]=]
+
+--[=[
+    Draws an already casted ray, put the result you got from worldRoot:Raycast, a nil result is nothing, drawn at full length with no marker, so the absent marker is what tells you it missed, a result is drawn to its hit point with a marker on the surface normal
 
     @function draw
     @within RayLens
@@ -108,7 +131,7 @@ const function clear()
 end
 
 --[=[
-    Adds a per frame callback, while the one that's set the previous frame is cleared before each call, so it draws inside the callback to create a new picture every frame and never rely on a lifetime, show nil to stop
+    Adds a per frame callback, while the one that's set the previous frame is cleared before each call, so it draws inside the callback to create a new picture every frame and never rely on a lifetime, put nil to stop
 
     @function onDraw
     @within RayLens
@@ -119,7 +142,7 @@ const function onDraw(callback: types.DrawCallback?)
 end
 
 --[=[
-    Raycast and shape cast debugging for Roblox, draws what you already cast, with client side handle adornments that only render inside Studios
+    Raycast and shape cast debugging for Roblox, draws what you already cast, with client side handle adornments that only render inside Studio
 
     @class RayLens
 ]=]

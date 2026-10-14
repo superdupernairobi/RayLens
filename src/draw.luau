@@ -6,10 +6,6 @@ const shapes = require("./shapes")
 const typees = require("./types")
 
 const function marker(position: Vector3, options: typees.ResolvedOptions): HandleAdornment
-	--[[if normal.Magnitude > 0 then
-		return shapes.sphere(position, 0.1, options)
-	end]]
-
 	return shapes.sphere(position, options.radius, options)
 end
 

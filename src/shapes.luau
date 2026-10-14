@@ -78,24 +78,10 @@ const function cylinder(cframe: CFrame, radius: number, height: number, options:
 	return adornment
 end
 
-const function pyramid(cframe: CFrame, size: number, height: number, options: types.ResolvedOptions): HandleAdornment
-	const adornment = pool.acquire("PyramidHandleAdornment") :: PyramidHandleAdornment
-
-	adornment.CFrame = cframe
-	adornment.Size = size
-	adornment.Height = height
-	adornment.Sides = 4
-	adornment.Shading = options.shading
-	style(adornment, options)
-
-	return adornment
-end
-
 return {
 	line = line,
 	sphere = sphere,
 	box = box,
 	cone = cone,
 	cylinder = cylinder,
-	pyramid = pyramid,
 }
